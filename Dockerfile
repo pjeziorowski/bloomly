@@ -14,7 +14,7 @@ RUN go mod download
 
 # build the app
 COPY . .
-RUN go build -o ./app ./server.go
+RUN go build
 
 FROM alpine:latest
 
@@ -28,4 +28,4 @@ COPY --from=builder /app .
 EXPOSE 1323
 
 # start the server
-ENTRYPOINT ["./app"]
+ENTRYPOINT ["./bloomly"]
