@@ -2,6 +2,7 @@ application:
   name: backend
   project: bloomly
   publicly_accessible: true
+  dockerfile: backend/Dockerfile
 routers:
   - name: api
     routes:
