@@ -1,0 +1,10 @@
+application:
+  name: backend
+  project: bloomly
+  publicly_accessible: true
+routers:
+  - name: api
+    routes:
+      - application_name: backend
+        paths:
+          - /api
