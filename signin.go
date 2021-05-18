@@ -20,6 +20,7 @@ func Signin(c echo.Context) error {
 	if err := c.Validate(input); err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
+	c.Logger().Print("Received sign in request %v", input)
 
 	id, err := verify(input.Arg1.Email, input.Arg1.Password)
 	if err != nil {
