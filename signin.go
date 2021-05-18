@@ -13,7 +13,7 @@ import (
 )
 
 func Signin(c echo.Context) error {
-	input := new(SigninInput)
+	input := new(SigninArgs)
 	if err := c.Bind(input); err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -21,7 +21,7 @@ func Signin(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
-	id, err := verify(input.Email, input.Password)
+	id, err := verify(input.Arg1.Email, input.Arg1.Password)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}

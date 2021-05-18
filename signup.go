@@ -13,7 +13,7 @@ import (
 )
 
 func Signup(c echo.Context) error {
-	input := new(SignupInput)
+	input := new(SignupArgs)
 	if err := c.Bind(input); err != nil {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
@@ -21,7 +21,7 @@ func Signup(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 	}
 
-	id, err := addCreator(input.Email, input.Password)
+	id, err := addCreator(input.Arg1.Email, input.Arg1.Password)
 	if err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}

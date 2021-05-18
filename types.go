@@ -1,5 +1,13 @@
 package main
 
+type SigninArgs struct {
+	Arg1 SigninInput
+}
+
+type SignupArgs struct {
+	Arg1 SignupInput
+}
+
 type SignupInput struct {
 	Email    string
 	Password string
