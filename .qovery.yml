@@ -7,4 +7,4 @@ routers:
     routes:
       - application_name: backend
         paths:
-          - /api
+          - "/"
