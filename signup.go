@@ -53,8 +53,8 @@ func addCreator(email, password string) (graphql.Int, error) {
 		return 0, err
 	}
 	vars := map[string]interface{}{
-		"password":         graphql.String(hashed),
-		"unverified_email": graphql.String(email),
+		"password":       graphql.String(hashed),
+		"verified_email": graphql.String(email),
 	}
 
 	err = client.Mutate(context.Background(), &mutation, vars)
