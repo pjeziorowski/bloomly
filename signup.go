@@ -46,7 +46,7 @@ func addCreator(email, password string) (graphql.Int, error) {
 	var mutation struct {
 		InsertCreatorsOne struct {
 			Id graphql.Int
-		} `graphql:"insert_creators_one(object: {unverified_email: $unverified_email, password: $password})"`
+		} `graphql:"insert_creators_one(object: {verified_email: $verified_email, password: $password})"`
 	}
 	hashed, err := hash([]byte(password))
 	if err != nil {
