@@ -6,7 +6,6 @@ import (
 	"bloomly/backend/handler"
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/hasura/go-graphql-client"
@@ -110,7 +109,7 @@ func register(email, password string) (graphql.Int, error) {
 	// trying to create a new user in Hasura backend
 	err = api.HasuraClient.Mutate(context.Background(), &mutation, vars)
 	if err != nil {
-		return 0, errors.New("error creating a new account")
+		return 0, err
 	}
 
 	return mutation.InsertCreatorsOne.Id, nil
