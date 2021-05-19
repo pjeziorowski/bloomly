@@ -1,12 +1,4 @@
-package main
-
-type SigninArgs struct {
-	Arg1 SigninInput
-}
-
-type SignupArgs struct {
-	Arg1 SignupInput
-}
+package signup
 
 type SignupInput struct {
 	Email    string
@@ -24,4 +16,17 @@ type SignupOutput struct {
 
 type SigninOutput struct {
 	AccessToken string
+}
+
+type Mutation struct {
+	Signin *SigninOutput
+	Signup *SignupOutput
+}
+
+type SigninArgs struct {
+	Arg1 SigninInput
+}
+
+type SignupArgs struct {
+	Arg1 SignupInput
 }

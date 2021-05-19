@@ -25,7 +25,7 @@ WORKDIR /app
 COPY --from=builder /app .
 
 # expose HTTP server port
-EXPOSE 1323
+EXPOSE 3000
 
 # start the server
 ENTRYPOINT ["./bloomly"]
