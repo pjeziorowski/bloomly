@@ -2,18 +2,14 @@ package signup
 
 import (
 	"bloomly/backend/api"
-	"bloomly/backend/config"
-	"bloomly/backend/handler"
+	"bloomly/backend/handler/auth"
 	"context"
 	"encoding/json"
-	"fmt"
-	"github.com/dgrijalva/jwt-go"
 	"github.com/hasura/go-graphql-client"
 	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"time"
 )
 
 type ActionPayload struct {
@@ -75,16 +71,10 @@ func signup(args SignupArgs) (response SignupOutput, err error) {
 	}
 
 	// try to create and sign a token
-	claims := &handler.JwtClaims{
-		handler.HasuraClaims{XHasuraUserId: fmt.Sprintf("%v", id)},
-		jwt.StandardClaims{ExpiresAt: time.Now().Add(time.Hour * 72).Unix()},
-	}
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	signed, err := token.SignedString([]byte(config.Secret))
+	signed, err := auth.SignTokenFor(id)
 	if err != nil {
 		return response, err
 	}
-
 	response.AccessToken = signed
 
 	return response, nil

@@ -2,8 +2,8 @@ package main
 
 import (
 	"bloomly/backend/config"
-	"bloomly/backend/handler/signin"
-	"bloomly/backend/handler/signup"
+	"bloomly/backend/handler/auth/signin"
+	"bloomly/backend/handler/auth/signup"
 	"log"
 	"net/http"
 )
