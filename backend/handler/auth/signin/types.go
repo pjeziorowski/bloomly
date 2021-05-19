@@ -14,5 +14,5 @@ type Mutation struct {
 }
 
 type SigninArgs struct {
-	Arg1 SigninInput
+	Input SigninInput
 }

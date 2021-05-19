@@ -65,7 +65,7 @@ func signup(args SignupArgs) (response SignupOutput, err error) {
 	response = SignupOutput{}
 
 	// try to create a new user
-	id, err := register(args.Arg1.Email, args.Arg1.Password)
+	id, err := register(args.Input.Email, args.Input.Password)
 	if err != nil {
 		return response, err
 	}

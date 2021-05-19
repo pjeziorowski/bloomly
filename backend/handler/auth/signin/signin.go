@@ -66,7 +66,7 @@ func signin(args SigninArgs) (response SigninOutput, err error) {
 	response = SigninOutput{}
 
 	// checking user password
-	id, err := verify(args.Arg1.Email, args.Arg1.Password)
+	id, err := verify(args.Input.Email, args.Input.Password)
 	if err != nil {
 		return response, err
 	}
